@@ -1,5 +1,5 @@
 function fish_prompt -d "Write out the prompt"
-    printf '%s%s@%s%s' (set_color brown) (whoami) (hostname|cut -d . -f 1) (set_color normal) 
+    printf '%s[%s] %s%s@%s%s' (set_color red) (date +"%T") (set_color brown) (whoami) (hostname|cut -d . -f 1) (set_color normal) 
 
     # Color writeable dirs green, read-only dirs red
     if test -w "."
@@ -16,5 +16,5 @@ function fish_prompt -d "Write out the prompt"
             printf ' +%s' (git_parse_ahead_of_remote)
         end
     end
-    printf '%s > ' (set_color normal)
+    printf "%s\n> " (set_color normal)
 end
