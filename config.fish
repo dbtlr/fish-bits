@@ -1,6 +1,6 @@
 set fish_greeting ""
 
-set -x PATH /usr/local/bin ~/.bin $PATH
+set -x PATH ~/.config/fish/bin ~/.bin /usr/local/bin $PATH
 
 
 

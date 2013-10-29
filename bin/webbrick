@@ -1,0 +1,35 @@
+#!/usr/bin/ruby
+
+require 'webrick'
+require 'optparse'
+ 
+options = { :port => 4000, :host => 'localhost', :root => '.' }
+OptionParser.new do |opts|
+  opts.banner = "Usage: webrick.rb [options]"
+ 
+  opts.on("-p", "--port [port]", "Set the port to use, defaults to 4000.") do |p|
+    options[:port] = r
+  end
+ 
+  opts.on("-r", "--root [root path]", "Set the webroot path. Defaults to the current path.") do |r|
+    options[:root] = r
+  end
+end.parse!
+ 
+class NonCachingFileHandler < WEBrick::HTTPServlet::FileHandler
+  def do_GET(req, res)
+    super
+ 
+    res['ETag']          = nil
+    res['Last-Modified'] = Time.now + 100**4
+    res['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'
+    res['Pragma']        = 'no-cache'
+    res['Expires']       = Time.now - 100**4
+  end
+end
+ 
+puts "Web Server Starting at http://"+options[:host]+":"+options[:port].to_s+" ...\n"
+server = WEBrick::HTTPServer.new :Port => options[:port], :Host => options[:host]
+server.mount "/", NonCachingFileHandler, options[:root]
+trap('INT') { server.stop }
+server.start

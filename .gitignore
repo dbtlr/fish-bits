@@ -1,3 +1,4 @@
 .DS_Store
 fish_history
 fishd.*
+config.local.fish
