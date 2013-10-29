@@ -1,4 +1,3 @@
 function is_git
-    git status >/dev/null ^&1        
-    return $status
+  env git rev-parse --git-dir ^/dev/null >/dev/null
 end
