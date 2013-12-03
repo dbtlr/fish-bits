@@ -1,6 +1,6 @@
 set fish_greeting ""
 
-set -x PATH ~/.config/fish/bin ~/.bin /usr/local/bin $PATH
+set -x PATH ~/.config/fish/bin ~/.composer/vendor/bin/ ~/.bin /usr/local/bin /usr/local/share/npm/bin $PATH
 
 
 
