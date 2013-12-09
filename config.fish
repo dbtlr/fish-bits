@@ -1,6 +1,8 @@
 set fish_greeting ""
 
-set -x PATH ~/.config/fish/bin ~/.composer/vendor/bin/ ~/.bin /usr/local/bin /usr/local/share/npm/bin $PATH
+set -x BOXEN_HOME /opt/boxen
+set -x PATH ~/.config/fish/bin ~/.bin /usr/local/bin $BOXEN_HOME/bin $BOXEN_HOME/homebrew/bin $BOXEN_HOME/homebrew/sbin $PATH
+set -x MANPATH=$BOXEN_HOME/homebrew/share/man:$MANPATH
 
 
 
