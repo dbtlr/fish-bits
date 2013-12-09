@@ -1,4 +1,4 @@
-function grb
-    git branch -D $argv[1]
-    git push origin :$argv[1]
+function grb -a tag
+  git branch -D $tag
+  git push origin :$tag
 end

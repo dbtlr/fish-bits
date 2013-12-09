@@ -15,7 +15,11 @@ function prepare -a release_type version dot_release_version
         return 1
       end
 
-      set tag "ERROR: release-$version-$release_type$dot_release_version"
+      if [ "$release_type" = "hotfix" ]
+        set tag "$version-$release_type$dot_release_version"
+      else
+        set tag "release-$version-$release_type$dot_release_version"
+      end
 
     case release
       if [ "$version" = "" ]
@@ -23,7 +27,7 @@ function prepare -a release_type version dot_release_version
         return 1
       end
 
-      set tag "release-$version"
+      set tag "$version"
 
     case '*'
       echo "ERROR: You must supply a release_type of 'release', 'candidate', or 'hotfix'."
@@ -42,6 +46,7 @@ function prepare -a release_type version dot_release_version
   end
 
   echo "Tagging $release_type: $tag"
+
   git tag -a $tag -m "$release_type $tag"
   git push
   git push --tags
