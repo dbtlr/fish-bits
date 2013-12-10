@@ -1,10 +1,12 @@
-set fish_greeting ""
+set -x PATH /usr/local/bin $PATH
 
-set -x BOXEN_HOME /opt/boxen
-set -x PATH ~/.config/fish/bin ~/.bin /usr/local/bin $BOXEN_HOME/bin $BOXEN_HOME/homebrew/bin $BOXEN_HOME/homebrew/sbin $PATH
-set -x MANPATH=$BOXEN_HOME/homebrew/share/man:$MANPATH
+# pull in the generated boxen config
+if test -f ~/.config/fish/boxen.fish
+  . ~/.config/fish/boxen.fish
+end
 
-
+# Make sure local bins take precidence.
+set -x PATH ~/.config/fish/bin ~/.bin $PATH
 
 set fish_greeting ""
 set -x EDITOR "vim"
@@ -21,3 +23,4 @@ end
 if test -f ~/.config/fish/config.local.fish
   . ~/.config/fish/config.local.fish
 end
+

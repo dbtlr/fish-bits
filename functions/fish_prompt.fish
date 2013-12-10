@@ -10,5 +10,5 @@ function fish_prompt -d "Write out the prompt"
 
     # Print git tag or branch
     parse_git_branch
-    printf "\n> "
+    printf "%s\n> " (set_color normal) 
 end
