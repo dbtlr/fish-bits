@@ -6,7 +6,7 @@ if test -f ~/.config/fish/boxen.fish
 end
 
 # Make sure local bins take precidence.
-set -x PATH ~/.config/fish/bin ~/.bin $PATH
+set -x PATH ~/.config/fish/bin ~/.bin ~/.composer/vendor/bin $PATH
 
 set fish_greeting ""
 set -x EDITOR "vim"
