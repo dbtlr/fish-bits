@@ -21,8 +21,8 @@ set -x VAGRANT_HOME /Users/dbtlr/.vagrant.d
 
 set -x GOPATH /Users/dbtlr/go
 
-set -x AWS_ACCESS_KEY "AKIAJ77QZI37XPGI37SQ"
-set -x AWS_SECRET_KEY "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"
+set -x AWS_ACCESS_KEY ""
+set -x AWS_SECRET_KEY ""
 
 set -x PATH ~/.config/fish/bin ~/.bin ~/.composer/vendor/bin /usr/local/opt/go/libexec/bin $GOPATH/bin $PATH
 
