@@ -1,10 +1,5 @@
 set -x PATH /usr/local/bin $PATH
 
-# pull in the generated boxen config
-# if test -f ~/.config/fish/boxen.fish
-#   . ~/.config/fish/boxen.fish
-# end
-
 # Make sure local bins take precidence.
 
 set fish_greeting ""
@@ -20,9 +15,6 @@ set -x VAGRANT_DOTFILE_PATH /Users/dbtlr/.vagrant
 set -x VAGRANT_HOME /Users/dbtlr/.vagrant.d
 
 set -x GOPATH /Users/dbtlr/go
-
-set -x AWS_ACCESS_KEY ""
-set -x AWS_SECRET_KEY ""
 
 set -x PATH ~/.config/fish/bin ~/.bin ~/.composer/vendor/bin /usr/local/opt/go/libexec/bin $GOPATH/bin $PATH
 
